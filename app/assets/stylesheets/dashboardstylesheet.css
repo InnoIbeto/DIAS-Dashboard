@@ -1,0 +1,15 @@
+#homebody{
+    background-color: #33FF57;
+}
+
+#welcomeimg-size{
+    width: 200px;
+    height: 200px;
+}
+
+#homebodytext{
+    font-size: 70px;
+    text-align: center;
+    font-weight: bold;
+    color: #000;
+}
