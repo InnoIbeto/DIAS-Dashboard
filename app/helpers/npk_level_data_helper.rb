@@ -1,0 +1,2 @@
+module NpkLevelDataHelper
+end
