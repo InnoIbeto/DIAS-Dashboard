@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 195px; height: 100vh; overflow-y: auto;">
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 250px; height: 100vh; overflow-y: auto;">
     <a >
       <span class="fs-4" id = "sidebar_header">
          <p  style = "font-size: 10px;">DATA-CENTRIC IRRIGATION ANALYTICS DASHBOARD</p>
@@ -6,19 +6,28 @@
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
+
       <%# <li class="nav-item">
         <a  class="nav-link active" id = "sidebar" >
           DashBoard
         </a>
       </li> %>
-        <%= link_to "DashBoard", dashboard_dashboard_page_path, class: "nav-link active", id: "sidebar" %> 
+
+      <%= link_to dashboard_dashboard_page_path, class: "nav-link active", id: "sidebar" do %>
+        <%= image_tag("dashboard icon.png", class: "nav-image mr-2", width: 32, height: 32) %>
+        Dashboard
+      <% end %>
+
 <br>
       <%# <li class="nav-item">
         <a class="nav-link active" id = "sidebar" >
           Suggestions
         </a>
       </li> %>
-        <%= link_to "Suggestions", suggestions_suggestions_page_path, class: "nav-link active", id: "sidebar" %> 
+        <%= link_to  suggestions_suggestions_page_path, class: "nav-link active", id: "sidebar" do %> 
+          <%= image_tag("suggestions icon.png", class: "nav-image mr-2", width: 32, height: 32) %>
+          Suggestions
+        <%end%>
 
 <br>
       <%# <li class="nav-item">
@@ -26,7 +35,10 @@
           Moisture Data
         </a>
       </li> %>
-        <%= link_to "Moisture Data", moisture_data_moisture_data_page_path, class: "nav-link active", id: "sidebar" %> 
+        <%= link_to moisture_data_moisture_data_page_path, class: "nav-link active", id: "sidebar" do %>
+          <%= image_tag "moisture data icon.png", class: "nav-image mr-2", width: 32, height: 32%> 
+          Moisture Data
+        <%end%>
 
 <br>
       <%# <li class="nav-item">
@@ -34,7 +46,10 @@
           pH Level Data
         </a>
       </li> %>
-        <%= link_to "pH Level Data", ph_level_data_ph_level_data_page_path, class: "nav-link active", id: "sidebar" %> 
+        <%= link_to ph_level_data_ph_level_data_page_path, class: "nav-link active", id: "sidebar" do %>
+          <%= image_tag "ph level icon.png", class: "nav-image mr-2", width: 32, height: 32%> 
+          pH Level Data
+        <%end%>
 
 <br>
       <%# <li class="nav-item">
@@ -42,7 +57,10 @@
           NPK Level Data
         </a>
       </li> %>
-        <%= link_to "NPK Level Data", npk_level_data_NPK_level_data_page_path, class: "nav-link active", id: "sidebar" %> 
+        <%= link_to  npk_level_data_NPK_level_data_page_path, class: "nav-link active", id: "sidebar" do %> 
+          <%= image_tag "NPK level icon.png", class: "nav-image mr-2", width: 32, height: 32%>
+          NPK Level Data
+        <%end%>
     </ul>
 
     <hr>
@@ -50,10 +68,10 @@
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
         <img  width="32" height="32" class="rounded-circle me-2">
-        <strong>mdo</strong>
+        <strong>~~~</strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="">
-        <li><a class="dropdown-item" href="#">New project...</a></li>
+
         <li><a class="dropdown-item" href="#">Settings</a></li>
         <li><a class="dropdown-item" href="#">Profile</a></li>
         <li><hr class="dropdown-divider"></li>
