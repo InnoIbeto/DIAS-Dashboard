@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get 'dashboard/dashboard_page'
   # get 'home/index'
   root "home#index"
+  devise_scope :user do
+    get '/users/sign_out', to:'devise/sessions#destroy'
+  end
 
   get "up" => "rails/health#show", as: :rails_health_check
 end

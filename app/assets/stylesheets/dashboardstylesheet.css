@@ -22,3 +22,10 @@
     background-color: #33FF57;
     color: #000;
 }
+
+.alert.alert-success {
+    background-color:  #33FF57;
+    border-color: #33FF57;
+    box-shadow: none;
+    text-align: center;
+}
