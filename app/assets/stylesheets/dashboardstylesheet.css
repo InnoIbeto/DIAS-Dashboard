@@ -21,6 +21,7 @@
 #sidebar{
     background-color: #33FF57;
     color: #000;
+    
 }
 
 .alert.alert-success {
@@ -28,4 +29,30 @@
     border-color: #33FF57;
     box-shadow: none;
     text-align: center;
+}
+
+#blankcol{
+    background-color:  black;
+    height: 100vh;
+}
+
+#maincol{
+    background-color:  #33FF57;
+
+}
+
+.allicen{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#blankcol2{
+    background-color:  #bec4be;
+    height: 100vh;
+}
+
+#blankcol3{
+    background-color:  white;
+    height: 100vh;
 }

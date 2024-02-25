@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 250px; height: 100vh; overflow-y: auto;">
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 250px; height: 100vh; overflow-y: auto; position: fixed; top: 0; left: 0;"">
     <a >
       <span class="fs-4" id = "sidebar_header">
          <p  style = "font-size: 10px;">DATA-CENTRIC IRRIGATION ANALYTICS DASHBOARD</p>
@@ -73,7 +73,6 @@
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="">
 
         <li><%= link_to "Settings",edit_user_registration_path, class:"dropdown-item" %></li> 
-        <li><%= link_to "Profile",edit_user_registration_path, class:"dropdown-item" %></li>
         <li><hr class="dropdown-divider"></li>
         <li><%= link_to "Sign out",destroy_user_session_path, class:"dropdown-item" %></li>
       </ul>
