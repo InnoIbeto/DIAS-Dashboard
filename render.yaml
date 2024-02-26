@@ -17,7 +17,7 @@ services:
         fromDatabase:
           name: diasdashboard
           property: connectionString
-      - key: a10298214b73c0a745e44ae0b66c51b2
+      - key: RAILS_MASTER_KEY
         sync: false
       - key: WEB_CONCURRENCY
         value: 2 # sensible default
