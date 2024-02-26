@@ -1,6 +1,6 @@
 databases:
-  - name: DIAS-Dashboard
-    databaseName: DIAS-Dashboard
+  - name: DIASDashboard
+    databaseName: DIASDashboard
     user: Inno
     plan: free
 
