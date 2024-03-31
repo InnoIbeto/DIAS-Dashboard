@@ -18,6 +18,10 @@
                         </ul>
                     </li>
                 </ul>
+                
+                <% if current_user.admin%>
+                    <%= link_to 'Admin Profile', admin_users_path, class: 'nav-link active text-light' %><br><br>
+                <%end%>
             </div>
         </nav>
     <%else%>

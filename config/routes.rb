@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :users
+
+      root to: "users#index"
+    end
   devise_for :users
   get 'npk_level_data/NPK_level_data_page'
   get 'ph_level_data/ph_level_data_page'
