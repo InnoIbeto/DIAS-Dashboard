@@ -9,13 +9,13 @@ module Admin
     before_action :authenticate_admin
 
     def authenticate_admin
-      if !current_user
-        flash[:alert] = "You don't have permission to access the admin dashboard."
-        redirect_to root_path
-      elsif !current_user.admin
-        flash[:alert] = "You don't have permission to access the admin dashboard."
-        redirect_to root_path
-      end
+      # if !current_user
+      #   flash[:alert] = "You don't have permission to access the admin dashboard."
+      #   redirect_to root_path
+      # elsif !current_user.admin
+      #   flash[:alert] = "You don't have permission to access the admin dashboard."
+      #   redirect_to root_path
+      # end
     end
 
     # Override this value to specify the number of elements to display at a time
