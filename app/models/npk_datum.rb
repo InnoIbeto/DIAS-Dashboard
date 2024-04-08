@@ -1,0 +1,2 @@
+class NpkDatum < ApplicationRecord
+end

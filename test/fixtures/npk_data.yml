@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  timestamp: 2024-04-06 16:21:07
+  nitrogen: 1
+  phosphorous: 1
+  potassium: 1
+
+two:
+  timestamp: 2024-04-06 16:21:07
+  nitrogen: 1
+  phosphorous: 1
+  potassium: 1

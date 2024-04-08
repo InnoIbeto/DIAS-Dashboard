@@ -10,9 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_31_191013) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_06_151646) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "moisture_data", force: :cascade do |t|
+    t.datetime "timestamp"
+    t.integer "moisture_level"
+    t.boolean "relay_state"
+    t.boolean "manual_override"
+    t.string "system_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "npk_data", force: :cascade do |t|
+    t.datetime "timestamp"
+    t.integer "nitrogen"
+    t.integer "phosphorous"
+    t.integer "potassium"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

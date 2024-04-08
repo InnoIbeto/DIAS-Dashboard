@@ -1,12 +1,31 @@
-<div class = "container-fluid">
-    <div class = "row">
-        <div class = "col-4">
-            <%= render 'shared/sidebar' %>
-        </div>
-
-        <div class = "col-8">
-            <h1>NpkLevelData#NPK_level_data_page</h1>
-            <p>Find me in app/views/npk_level_data/NPK_level_data_page.html.erb</p>
-        </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <%= render 'shared/sidebar' %>
     </div>
+
+    <div class="col-8">
+      <h1>NPK Level Data</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Nitrogen (mg/kg)</th>
+            <th>Phosphorous (mg/kg)</th>
+            <th>Potassium (mg/kg)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @npk_data.each do |npk_datum| %>
+            <tr>
+              <td><%= npk_datum.timestamp %></td>
+              <td><%= npk_datum.nitrogen %></td>
+              <td><%= npk_datum.phosphorous %></td>
+              <td><%= npk_datum.potassium %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

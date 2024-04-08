@@ -1,12 +1,33 @@
-<div class = "container-fluid">
-    <div class = "row">
-        <div class = "col-4">
-            <%= render 'shared/sidebar' %>
-        </div>
-
-        <div class = "col-8">
-            <h1>MoistureData#moisture_data_page</h1>
-            <p>Find me in app/views/moisture_data/moisture_data_page.html.erb</p>
-        </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <%= render 'shared/sidebar' %>
     </div>
+
+    <div class="col-8">
+      <h1>Moisture Data</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Moisture Level</th>
+            <th>Relay State</th>
+            <th>Manual Override</th>
+            <th>System Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @moisture_data.each do |data| %>
+            <tr>
+              <td><%= data.timestamp %></td>
+              <td><%= data.moisture_level %></td>
+              <td><%= data.relay_state ? "On" : "Off" %></td>
+              <td><%= data.manual_override ? "On" : "Off" %></td>
+              <td><%= data.system_status %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

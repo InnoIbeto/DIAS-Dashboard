@@ -1,0 +1,2 @@
+class MoistureDatum < ApplicationRecord
+end
