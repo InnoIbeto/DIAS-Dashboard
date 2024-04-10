@@ -47,6 +47,8 @@ gem 'devise', '~> 4.9', '>= 4.9.3'
 
 gem 'administrate', '~> 0.20.1'
 
+gem 'chartkick', '~> 5.0', '>= 5.0.6'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]

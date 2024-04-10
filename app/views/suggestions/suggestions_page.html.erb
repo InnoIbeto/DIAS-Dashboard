@@ -1,12 +1,45 @@
-<div class = "container-fluid">
-    <div class = "row">
-        <div class = "col-4">
-            <%= render 'shared/sidebar' %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <%= render 'shared/sidebar' %>
+    </div>
+
+    <div class="col-8">
+<br><br>    
+      <h1>Suggestions</h1>
+<br>
+      <div id="recommendationsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" style="background-color: black; color: green; height: 100%;">
+
+          <!-- NPK Recommendations Slide -->
+          <div class="carousel-item active bg-dark" style="background-color: black;">
+            <h2>NPK Recommendations</h2>
+            <ul>
+              <% @npk_recommendation.each do |component, recommendation| %>
+                <li><%= "#{component.capitalize}: #{recommendation}" %></li>
+              <% end %>
+            </ul>
+          </div>
+
+          <!-- Moisture Level Recommendation Slide -->
+          <div class="carousel-item bg-dark" style="background-color: black;">
+            <h2>Moisture Level Recommendation</h2>
+            <p><%= @moisture_recommendation %></p>
+          </div>
+
         </div>
 
-        <div class = "col-8">
-            <h1>Suggestions#suggestions_page</h1>
-            <p>Find me in app/views/suggestions/suggestions_page.html.erb</p>
-        </div>
+        <!-- Carousel Navigation Buttons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#recommendationsCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#recommendationsCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
     </div>
+  </div>
 </div>

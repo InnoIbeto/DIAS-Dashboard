@@ -1,12 +1,217 @@
-<div class = "container-fluid">
-    <div class = "row">
-        <div class = "col-4">
-            <%= render 'shared/sidebar' %>
-        </div>
-
-        <div class = "col-8">
-            <h1>Dashboard#dashboard_page</h1>
-            <p>Find me in app/views/dashboard/dashboard_page.html.erb</p>
-        </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <%= render 'shared/sidebar' %>
     </div>
+
+    <div class="col-8">
+      <h1>Dashboard page</h1>
+<br>
+        <div>
+            <canvas id="moistureBarChart"></canvas>
+        </div>
+<br>
+      <div>
+         <canvas id="npkBarChart"></canvas>
+      </div>
+<br>
+            <div>
+                <canvas id="moistureLineChart"></canvas>
+            </div>
+<br>     
+        <div>
+            <canvas id="npkLineChart"></canvas>
+        </div>
+<br>
+
+      <div>
+         <canvas id="npkChart"></canvas>
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        
+        const moistureBarCtx = document.getElementById('moistureBarChart').getContext('2d');
+        const moistureBarChart = new Chart(moistureBarCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    <% @moisture_data.each do |moisture_datum| %>
+                        '<%= moisture_datum.timestamp.strftime("%Y-%m-%d %H:%M:%S") %>',
+                    <% end %>
+                ],
+                datasets: [{
+                    label: 'Moisture Level',
+                    data: [
+                        <% @moisture_data.each do |moisture_datum| %>
+                            <%= moisture_datum.moisture_level %>,
+                        <% end %>
+                    ],
+                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                    borderColor: 'rgba(255, 206, 86, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    
+
+    
+        const npkBarCtx = document.getElementById('npkBarChart').getContext('2d');
+        const npkBarChart = new Chart(npkBarCtx, {
+            type: 'bar',
+            data: {
+                labels: ['N', 'P', 'K'],
+                datasets: [{
+                    label: 'NPK Levels',
+                    data: [
+                        <% @npk_data.each do |npk_datum| %>
+                            <%= npk_datum.nitrogen %>,
+                            <%= npk_datum.phosphorous %>,
+                            <%= npk_datum.potassium %>,
+                        <% end %>
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    
+
+    
+        const moistureLineCtx = document.getElementById('moistureLineChart').getContext('2d');
+        const moistureLineChart = new Chart(moistureLineCtx, {
+            type: 'line',
+            data: {
+                labels: [
+                    <% @moisture_data.each do |moisture_datum| %>
+                        '<%= moisture_datum.timestamp.strftime("%Y-%m-%d %H:%M:%S") %>',
+                    <% end %>
+                ],
+                datasets: [{
+                    label: 'Moisture Level',
+                    data: [
+                        <% @moisture_data.each do |moisture_datum| %>
+                            <%= moisture_datum.moisture_level %>,
+                        <% end %>
+                    ],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    
+
+    
+        const npkLineCtx = document.getElementById('npkLineChart').getContext('2d');
+        const npkLineChart = new Chart(npkLineCtx, {
+            type: 'line',
+            data: {
+                labels: ['N', 'P', 'K'],
+                datasets: [{
+                    label: 'NPK Levels',
+                    data: [
+                        <% @npk_data.each do |npk_datum| %>
+                            <%= npk_datum.nitrogen %>,
+                            <%= npk_datum.phosphorous %>,
+                            <%= npk_datum.potassium %>,
+                        <% end %>
+                    ],
+                    fill: false,
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    
+
+    
+        const npkCtx = document.getElementById('npkChart').getContext('2d');
+
+        // Calculate the total sum of NPK levels
+        const totalNitrogen = <%= @npk_data.pluck(:nitrogen).compact.sum %>;
+        const totalPhosphorous = <%= @npk_data.pluck(:phosphorous).compact.sum %>;
+        const totalPotassium = <%= @npk_data.pluck(:potassium).compact.sum %>;
+
+        // Log the total NPK levels
+        console.log('Total NPK Data:', totalNitrogen, totalPhosphorous, totalPotassium);
+
+        const npkChart = new Chart(npkCtx, {
+            type: 'pie',
+            data: {
+            labels: ['Nitrogen', 'Phosphorous', 'Potassium'],
+            datasets: [{
+                data: [totalNitrogen, totalPhosphorous, totalPotassium],
+                backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+            },
+            options: {
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+            }
+            }
+        });
+                
+    });
+
+</script>

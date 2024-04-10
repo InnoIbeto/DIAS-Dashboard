@@ -8,10 +8,25 @@
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
 <br>
+<!--
     <%= link_to dashboard_dashboard_page_path, class: "btn btn-success d-flex justify-content-between align-items-center", id: "sidebar" do %>
       <%= image_tag("dashboard icon.png", class: "nav-image mr-2", width: 32, height: 32) %>
       Dashboard
     <% end %>
+-->
+
+<%= link_to dashboard_dashboard_page_path, class: "btn btn-success d-flex justify-content-between align-items-center", id: "sidebar", onclick: "refreshDashboard()" do %>
+  <%= image_tag("dashboard icon.png", class: "nav-image mr-2", width: 32, height: 32) %>
+  Dashboard
+<% end %>
+
+<script>
+  function refreshDashboard() {
+    // Reload the dashboard page
+    window.location.href = "<%= dashboard_dashboard_page_path %>";
+  }
+</script>
+
 <br>
     <%= link_to suggestions_suggestions_page_path, class: "btn btn-success d-flex justify-content-between align-items-center", id: "sidebar" do %>
       <%= image_tag("suggestions icon.png", class: "nav-image mr-2", width: 32, height: 32) %>
